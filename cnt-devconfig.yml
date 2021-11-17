@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cnt-dev
+data:
+  DBA_URL: "https://database.com/utrain/dev"
+  PORT_NUMBER: "80"
+  MONITOR_URL: "https://prometheus.com/dev"
+  WEB_CONTENT: "/opt/dev/content"
+  WEB_VOLUME: "dev-volumes"

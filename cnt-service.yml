@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: cnt-app-service
+  labels:
+    app: cnt-dev-app
+spec:
+  selector:
+    app: cnt-dev-app
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 80
+#      nodePort: 31200

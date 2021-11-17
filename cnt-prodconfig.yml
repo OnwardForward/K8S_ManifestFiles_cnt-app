@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cnt-prod
+data:
+  DBA_URL: "https://database.com/utrain/prod"
+  PORT_NUMBER: "443"
+  MONITOR_URL: "https://prometheus.com/prod"
+  WEB_CONTENT: "/opt/prod/content"
+  WEB_VOLUME: "prod-volumes"

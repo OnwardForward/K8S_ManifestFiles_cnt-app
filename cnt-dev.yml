@@ -1,0 +1,43 @@
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: cnt-dev-app
+  namespace: serge
+spec:
+  selector:
+    matchLabels:
+      app: cnt-dev-app
+  replicas: 5 # tells deployment to run 5 pods matching the template
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+
+  template:
+    metadata:
+      labels:
+        app: cnt-dev-app
+    spec:
+      containers:
+      - name: cnt-dev-app
+        image: nginx
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+
+
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: cnt-app-service
+#   labels:
+#     app: cnt-dev-app
+# spec:
+#   selector:
+#     app: cnt-dev-app
+#   type: LoadBalancer
+#   ports:
+#     - port: 80
+#       targetPort: 80
+# #      nodePort: 31200
